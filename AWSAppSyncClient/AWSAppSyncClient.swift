@@ -419,3 +419,7 @@ public class AWSAppSyncClient {
     }
 
 }
+
+public extension Notification.Name {
+    static let mutationPerformed = Notification.Name("mutationPerformed")
+}
