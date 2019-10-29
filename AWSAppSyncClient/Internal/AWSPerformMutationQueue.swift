@@ -110,7 +110,6 @@ final class AWSPerformMutationQueue {
                     mutation: mutation)
                 
                 operation.queuePriority = mutation.priority ?? .normal
-                
                 operation.operationCompletionBlock = { [weak self] operation, error in
                     let identifier = operation.mutation.recordIdentifier
                     self?.deleteOfflineMutation(withIdentifier: identifier)
@@ -151,7 +150,7 @@ final class AWSPerformMutationQueue {
         offlineMutation.jsonRecord = mutation.variables?.jsonObject
         offlineMutation.recordState = .inQueue
         offlineMutation.operationString = Mutation.operationString
-        offlineMutation.priority = mutationPriority 
+        offlineMutation.priority = mutationPriority
 
         persistentCache
             .saveMutationRecord(record: offlineMutation)

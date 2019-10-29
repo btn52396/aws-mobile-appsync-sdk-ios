@@ -37,7 +37,7 @@ extension AWSAppSyncMutationRecord: CustomStringConvertible {
         desc.append("\tID: \(recordIdentifier)")
         desc.append("\ttimestamp: \(timestamp)")
         desc.append("\thasS3Object: \(s3ObjectInput != nil ? true : false)")
-        desc.append("\tpriority: \(priority ?? .normal)") 
+        desc.append("\tpriority: \(priority ?? .normal)")
         desc.append(">")
 
         return desc

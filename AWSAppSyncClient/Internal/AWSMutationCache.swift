@@ -24,7 +24,7 @@ public final class AWSMutationCache {
     private let s3LocalUri = Expression<String?>("s3LocalUri")
     private let s3MimeType = Expression<String?>("s3MimeType")
     private let operationString = Expression<String>("operationString")
-         private let priority = Expression<Int?>("priority")
+    private let priority = Expression<Int?>("priority")
 
     public init(fileURL: URL) throws {
         AppSyncLog.verbose("Initializing mutation cache at \(fileURL.absoluteString)")
