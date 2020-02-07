@@ -30,11 +30,6 @@ public final class AWSMutationCache {
         AppSyncLog.verbose("Initializing mutation cache at \(fileURL.absoluteString)")
         db = try Connection(.uri(fileURL.absoluteString), readonly: false)
         db.busyTimeout = sqlBusyTimeoutConstant
-        
-        do {
-            try db.run(mutationRecords.addColumn(priority))
-        } catch {}
-        
         try createTableIfNeeded()
     }
 
@@ -51,6 +46,7 @@ public final class AWSMutationCache {
             table.column(s3LocalUri)
             table.column(s3MimeType)
             table.column(operationString)
+            table.column(priority)
         })
 
         try db.run(mutationRecords.createIndex(recordIdentifier, unique: true, ifNotExists: true))
